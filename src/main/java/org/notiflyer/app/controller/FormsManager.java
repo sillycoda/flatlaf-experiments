@@ -32,27 +32,18 @@ public class FormsManager {
         this.application = application;
     }
 
-    public void showForm(JComponent form, String title) {
-        EventQueue.invokeLater(() -> {
-            FlatAnimatedLafChange.showSnapshot();
-            // application.setContentPane(form);
-            application.add(form, BorderLayout.CENTER);
-            application.setTitle(title);
-            application.revalidate();
-            application.repaint();
-            FlatAnimatedLafChange.hideSnapshotWithAnimation();
-            application.dispose();
-            application.setUndecorated(false);
-            application.setVisible(true);
-        });
-    }
-
-    public void showIndependentPanel(JComponent form) {
+    /**
+     * show independent panel - loads a jpanel object into it's own borderfree window
+     * @param panel
+     */
+    public void showIndependentPanel(JComponent panel) {
         try {
             EventQueue.invokeLater(() -> {
                 FlatAnimatedLafChange.showSnapshot();
                 application.getContentPane().removeAll();
-                application.setContentPane(form);
+                application.setContentPane(panel);
+                application.setUndecorated(true);
+                application.setLocationRelativeTo(null);
                 application.revalidate();
                 application.repaint();
                 FlatAnimatedLafChange.hideSnapshotWithAnimation();
@@ -61,7 +52,29 @@ public class FormsManager {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-        
+    }
+
+
+    /**
+     * show form - loads a jpanel object into the main application window. can set title
+     * @param panel
+     * @param title
+     */
+    public void showForm(JComponent panel, String title) {
+        EventQueue.invokeLater(() -> {
+            FlatAnimatedLafChange.showSnapshot();
+            // application.setContentPane(form);
+            application.getContentPane().removeAll();
+            application.setLayout(new BorderLayout());
+            application.add(panel, BorderLayout.CENTER);
+            application.setTitle(title);
+            application.revalidate();
+            application.repaint();
+            FlatAnimatedLafChange.hideSnapshotWithAnimation();
+            application.dispose();
+            application.setUndecorated(false);
+            application.setVisible(true);
+        });
     }
 
     // switch between forms

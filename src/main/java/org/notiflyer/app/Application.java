@@ -26,8 +26,6 @@ limitations under the License.
 // declare package
 package org.notiflyer.app;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 
 import org.notiflyer.app.config.ApplicationConfig;
@@ -90,15 +88,6 @@ public class Application extends JFrame {
          *      4.2 query info header (add/edit/delete queries) - has buttons to view query grid list, query query grid
          *      4.3 query parameter grid (add/edit/delete parameters from query) - has buttons to view query info header, query grid list
          */
-
-         // set application layout
-        this.setLayout(new BorderLayout());
-
-        // center screen
-        setLocationRelativeTo(null);
-
-        // remove border and top window bar
-        setUndecorated(true);
 
         // create new instance of window from FormsManager
         FormsManager.getInstance().initApplication(this);

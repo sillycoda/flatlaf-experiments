@@ -27,27 +27,29 @@ limitations under the License.
 package org.notiflyer.app.views.auth;
 
 // import dependencies for gui forms
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-
-// file io
-import java.io.IOException;
 import java.io.File;
+import java.io.IOException;
 
-// image
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-// application config
 import org.notiflyer.app.config.ApplicationConfig;
 import org.notiflyer.app.controller.FormsManager;
-// local db authentication
-import org.notiflyer.app.model.auth.LocalDBAuthentication;
 import org.notiflyer.app.views.job.JobManager;
-import org.notiflyer.app.views.job.JobManagerGrid;
 
 /*
  * Login class to generate UI components on login form
@@ -82,7 +84,7 @@ public class Login extends JPanel {
         registerButton = new JButton("Register");
 
         registerButton.addActionListener(e -> {
-            FormsManager.getInstance().showForm(new Register());
+            FormsManager.getInstance().showIndependentPanel(new Register());
         });
 
         loginButton.addActionListener(e -> {

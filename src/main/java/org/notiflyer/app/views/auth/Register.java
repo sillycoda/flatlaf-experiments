@@ -24,8 +24,6 @@ limitations under the License.
 */
 package org.notiflyer.app.views.auth;
 
-import javax.imageio.ImageIO;
-
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
@@ -40,6 +38,7 @@ import java.awt.event.ComponentEvent;
 import java.io.File;
 import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -49,7 +48,6 @@ import javax.swing.JTextField;
 
 import org.notiflyer.app.config.ApplicationConfig;
 import org.notiflyer.app.controller.FormsManager;
-
 import org.notiflyer.app.model.auth.LocalDBAuthentication;
 
 public class Register extends JPanel {
@@ -90,7 +88,7 @@ public class Register extends JPanel {
           registerButton = new JButton("Register");
 
           loginButton.addActionListener(e -> {
-               FormsManager.getInstance().showForm(new Login());
+               FormsManager.getInstance().showIndependentPanel(new Login());
           });
 
           registerButton.addActionListener(e -> {
