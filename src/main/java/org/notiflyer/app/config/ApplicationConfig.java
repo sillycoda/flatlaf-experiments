@@ -24,6 +24,8 @@ limitations under the License.
 */
 package org.notiflyer.app.config;
 
+import org.notiflyer.app.model.setup.SetupLocalDatabase;
+
 // declare class
 /*
  * ApplicationConfig class to configure notiflyer application and hold static configuration values
@@ -118,4 +120,16 @@ public class ApplicationConfig {
         // width
         public final int REGISTER_FORM_WIDTH = 900;
         
+
+        // local database
+        SetupLocalDatabase setupLocalDatabase = new SetupLocalDatabase();
+
+        // check if app database is configured and create if not
+        public void ConfigureAppDB() {
+            if(setupLocalDatabase.isAppDatabaseConfigured(APP_DB_FILE_PATH, APP_DB_FILE_NAME)) {
+            } else {
+                setupLocalDatabase.createAppDatabase(APP_DB_FILE_PATH, APP_DB_FILE_NAME);
+            }
+        }
+
 }

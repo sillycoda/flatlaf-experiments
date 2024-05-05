@@ -55,13 +55,15 @@ public class Application extends JFrame {
     public Application() {
         // initialize application configuration
         config = new ApplicationConfig();
+        // check if app database is configured
+        config.ConfigureAppDB();
     }
 
     private void initApplication() {
 
         // init flatlaf
         FlatMacDarkLaf.setup();
-        
+
         
         // set application title
         this.setTitle(config.APP_NAME);
