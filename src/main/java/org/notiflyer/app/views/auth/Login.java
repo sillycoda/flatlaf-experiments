@@ -49,7 +49,7 @@ import javax.swing.JTextField;
 
 import org.notiflyer.app.config.ApplicationConfig;
 import org.notiflyer.app.controller.FormsManager;
-import org.notiflyer.app.views.job.JobManager;
+import org.notiflyer.app.views.app.MainWindow;
 
 /*
  * Login class to generate UI components on login form
@@ -88,7 +88,8 @@ public class Login extends JPanel {
         });
 
         loginButton.addActionListener(e -> {
-            FormsManager.getInstance().showForm(new JobManager(), "Job Manager");
+            MainWindow mainWindow = new MainWindow();
+            //FormsManager.getInstance().showForm(new JobManager(), "Job Manager");
         });
 
         // Add fields and button to panel

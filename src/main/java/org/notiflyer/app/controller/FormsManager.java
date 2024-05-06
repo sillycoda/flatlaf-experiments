@@ -8,10 +8,13 @@ import java.awt.EventQueue;
 import javax.swing.JComponent;
 
 import org.notiflyer.app.Application;
+import org.notiflyer.app.config.ApplicationConfig;
+import org.notiflyer.app.views.navigation.NavBar;
 
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 
 public class FormsManager {
+    private ApplicationConfig config;
     private Application application;
     private static FormsManager instance;
 
@@ -24,7 +27,7 @@ public class FormsManager {
     }
 
     private FormsManager() {
-        
+        config = new ApplicationConfig();
     }
 
     // initialize new application instance
@@ -51,6 +54,27 @@ public class FormsManager {
             });
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+
+    public void showPanelWithNavBar(JComponent panel) {
+        try {
+            EventQueue.invokeLater(() -> {
+                FlatAnimatedLafChange.showSnapshot();
+                // set frame size
+                application.setSize(config.MAIN_WINDOW_WIDTH, config.MAIN_WINDOW_HEIGHT);
+
+                // set frame layout
+                application.setLayout(new BorderLayout());
+                application.getContentPane().removeAll();
+                application.add(new NavBar(),BorderLayout.WEST);
+                application.add(panel, BorderLayout.CENTER);
+                FlatAnimatedLafChange.hideSnapshotWithAnimation();
+                application.setVisible(true);
+            });
+            
+        } catch (Exception e) {
         }
     }
 

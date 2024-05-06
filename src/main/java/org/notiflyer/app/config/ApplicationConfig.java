@@ -60,7 +60,7 @@ public class ApplicationConfig {
         // database user
         public final String DATABASE_USER = "SA";
         // database password
-        public final String DATABASE_PASSWORD = "";
+        public final String DATABASE_PASSWORD = "<YourNewStrong@Passw0rd>";
     
 
         // gui components
@@ -96,6 +96,14 @@ public class ApplicationConfig {
         // height
         public final int MAIN_WINDOW_HEIGHT = 900;
         
+        // ## NAVIGATION BAR JPANEL
+        // background color
+        public final String NAV_BAR_BG_COLOR = "#7c162e";
+        // height
+        public final int NAV_BAR_HEIGHT = 900;
+        // width
+        public final int NAV_BAR_WIDTH = 200;
+
         // ## LOGIN FORM JPANEL
         // background image
         public final String LOGIN_FORM_BACKGROUND_IMAGE = "assets/img/login_form.png";
